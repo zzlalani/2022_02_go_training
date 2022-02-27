@@ -17,5 +17,8 @@ func Connect(connStr string) (*gorm.DB, error) {
 }
 
 func migrate(db *gorm.DB) error {
-	return db.AutoMigrate(&User{})
+	if err := db.AutoMigrate(&User{}); err != nil {
+		return err
+	}
+	return nil
 }

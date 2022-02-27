@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/zzlalani/go-practice/internal/handlers"
 	"github.com/zzlalani/go-practice/internal/repository"
 )
 
@@ -12,14 +13,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
-	userRepo := repository.NewUserRepo(db)
-
-	// createUsers(userRepo)
-
-	// read(userRepo)
-
-	delete(userRepo)
+	handlers.Setup(db)
 }
 
 
